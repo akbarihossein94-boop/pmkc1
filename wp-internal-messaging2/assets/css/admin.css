@@ -1,0 +1,906 @@
+/* ---------- Global layout ---------- */
+
+.wpim-wrap {
+    direction: rtl;
+    text-align: right;
+    font-family: tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, #eef2ff 0%, #f9fafb 35%, #e5e7eb 100%);
+    padding: 24px 0 40px;
+}
+
+.wpim-page-title {
+    color: #111827;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ---------- Toast (success notification) ---------- */
+
+.wpim-toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ecfdf3;
+    padding: 10px 18px;
+    border-radius: 999px;
+    box-shadow: 0 16px 35px rgba(22, 163, 74, 0.45);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.wpim-toast-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* ---------- Main card ---------- */
+
+.wpim-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 24px 30px;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.12),
+        0 0 0 1px rgba(209, 213, 219, 0.8);
+}
+
+/* ---------- Rows / Columns ---------- */
+
+.wpim-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    gap: 16px;
+}
+
+.wpim-row-tight {
+    margin-bottom: 12px;
+}
+
+.wpim-col,
+.wpim-col-full {
+    box-sizing: border-box;
+}
+
+.wpim-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.wpim-col-full {
+    flex: 1 0 100%;
+}
+
+.wpim-col-wide {
+    flex: 2.2;
+}
+
+.wpim-col-narrow {
+    flex: 0.7;
+}
+
+.wpim-row-five .wpim-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 900px) {
+    .wpim-row {
+        flex-direction: column;
+    }
+
+    .wpim-col,
+    .wpim-col-full,
+    .wpim-col-wide,
+    .wpim-col-narrow,
+    .wpim-row-five .wpim-col {
+        flex: 1 0 100%;
+    }
+}
+
+/* ---------- Inputs ---------- */
+
+.wpim-input {
+    width: 100%;
+    padding: 8px 11px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: all 0.16s ease;
+    font-size: 13px;
+}
+
+.wpim-input::placeholder {
+    color: #9ca3af;
+}
+
+.wpim-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+    background: #ffffff;
+}
+
+.wpim-input-large {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wpim-input-small {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.wpim-input-disabled {
+    opacity: 0.9;
+    cursor: default;
+    background: #f9fafb;
+}
+
+/* Textarea */
+
+.wpim-textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Editor */
+
+.wpim-editor-wrapper .wp-editor-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+}
+
+/* ---------- Meta cards (sender / doc / date / type / priority) ---------- */
+
+.wpim-meta-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.wpim-meta-equal {
+    min-height: 60px;
+}
+
+.wpim-meta-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.wpim-meta-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: #e5e7eb;
+    position: relative;
+}
+
+/* System Document Number icon – clean document outline */
+
+.wpim-meta-icon.doc::before {
+    content: "";
+    position: absolute;
+    inset: 5px 6px 6px 6px;
+    border-radius: 4px;
+    border: 2px solid #4b5563;
+}
+
+.wpim-meta-icon.doc::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    width: 8px;
+    height: 2px;
+    background: #4b5563;
+    box-shadow:
+        0 4px 0 #4b5563,
+        0 8px 0 #4b5563;
+}
+
+/* Date icon – simple calendar */
+
+.wpim-meta-icon.date::before {
+    content: "";
+    position: absolute;
+    inset: 5px 6px 7px 6px;
+    border-radius: 4px;
+    border: 2px solid #4b5563;
+}
+
+.wpim-meta-icon.date::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    top: 12px;
+    height: 2px;
+    background: #4b5563;
+}
+
+.wpim-meta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.wpim-meta-content.full {
+    width: 100%;
+}
+
+.wpim-meta-label {
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.wpim-meta-value {
+    font-size: 12px;
+    color: #111827;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ---------- Chips: Message Type & Priority (new corporate colors) ---------- */
+
+.wpim-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.wpim-chip {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    padding: 3px 9px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #374151;
+    transition: all 0.15s ease;
+}
+
+.wpim-chip:hover {
+    background: #e5e7eb;
+}
+
+/* Base active style */
+.wpim-chip.active {
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* Message type colors */
+.chip-type-internal.active {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+.chip-type-external.active {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+}
+
+/* Priority colors */
+.chip-priority-normal.active {
+    background: linear-gradient(135deg, #4b5563, #374151);  /* neutral */
+}
+.chip-priority-low.active {
+    background: linear-gradient(135deg, #22c55e, #15803d);  /* green */
+}
+.chip-priority-high.active {
+    background: linear-gradient(135deg, #f97316, #c2410c);  /* orange */
+}
+.chip-priority-urgent.active {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);  /* red */
+}
+
+/* ---------- Multi-select dropdown (recipients / CC) ---------- */
+
+.wpim-select-field {
+    position: relative;
+}
+
+.wpim-select-display {
+    border-radius: 999px;
+    padding: 7px 11px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #111827;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wpim-select-display .placeholder {
+    opacity: 0.7;
+}
+
+.wpim-select-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    z-index: 20;
+    display: none;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+    padding: 6px 6px 8px;
+}
+
+.wpim-select-dropdown.open {
+    display: block;
+}
+
+.wpim-select-search {
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    font-size: 12px;
+    background: #f9fafb;
+    color: #111827;
+}
+
+.wpim-select-options {
+    max-height: 210px;
+    overflow-y: auto;
+}
+
+.wpim-select-option {
+    display: block;
+    width: 100%;
+    text-align: right;
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 5px 10px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #111827;
+    transition: all 0.12s ease;
+}
+
+.wpim-select-option:hover {
+    background: #e5f0ff;
+}
+
+.wpim-select-option.selected {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+}
+
+/* ---------- Tokens ---------- */
+
+.wpim-tokens {
+    margin-top: 6px;
+}
+
+.wpim-token {
+    display: inline-flex;
+    align-items: center;
+    background: #e5f0ff;
+    color: #1d4ed8;
+    padding: 2px 8px 3px;
+    border-radius: 999px;
+    margin: 2px 0 2px 4px;
+    font-size: 11px;
+}
+
+.wpim-token-remove {
+    margin-right: 6px;
+    cursor: pointer;
+    color: #b91c1c;
+    font-weight: bold;
+}
+
+/* ---------- Notifications ---------- */
+
+.wpim-notify-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.wpim-notify-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    transition: all 0.15s ease;
+}
+
+.wpim-notify-card input[type="checkbox"] {
+    display: none;
+}
+
+.wpim-notify-text {
+    font-weight: 500;
+}
+
+/* Active states */
+.wpim-notify-card.email.active {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ffffff;
+    border-color: transparent;
+}
+.wpim-notify-card.sms.active {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* ---------- Attachments ---------- */
+
+.wpim-attachments-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.wpim-attach-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #f9fafb;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.4);
+}
+
+.wpim-attach-btn input[type="file"] {
+    display: none;
+}
+
+.wpim-attach-hint {
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.wpim-attachments-list {
+    margin-top: 10px;
+}
+
+.wpim-attachment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+    color: #111827;
+}
+
+.wpim-attachment-delete {
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    padding: 2px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #374151;
+    transition: all 0.16s ease;
+}
+
+.wpim-attachment-delete:hover {
+    background: #e5e7eb;
+}
+
+/* ---------- Tags ---------- */
+
+.wpim-tags-wrapper {
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+    padding: 8px;
+    background: #f9fafb;
+}
+
+.wpim-tags-tokens {
+    margin-bottom: 6px;
+}
+
+.wpim-tag-token {
+    display: inline-flex;
+    align-items: center;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px 3px;
+    border-radius: 999px;
+    margin: 2px 0 2px 4px;
+    font-size: 11px;
+}
+
+.wpim-tag-remove {
+    margin-right: 6px;
+    cursor: pointer;
+    color: #b91c1c;
+    font-weight: bold;
+}
+
+.wpim-tag-input {
+    border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+
+.wpim-actions {
+    justify-content: flex-end;
+}
+
+.wpim-actions-inner {
+    margin-right: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.wpim-btn {
+    border-radius: 999px;
+    padding: 7px 22px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.wpim-btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
+}
+
+.wpim-btn-primary:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.45);
+}
+
+.wpim-btn-secondary {
+    background: #ffffff;
+    color: #1f2933;
+    border: 1px solid #d1d5db;
+}
+
+.wpim-btn-secondary:hover {
+    background: #f9fafb;
+}
+
+/* ---------- Validation errors ---------- */
+
+.wpim-form-errors {
+    max-width: 1100px;
+    margin: 0 auto 15px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+    color: #7f1d1d;
+    font-size: 12px;
+}
+.wpim-form-errors ul {
+    margin: 0;
+    padding-right: 18px;
+}
+
+.wpim-field-error {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.6) !important;
+    border-color: #ef4444 !important;
+}
+.wpim-editor-wrapper.wpim-field-error {
+    border-color: #ef4444 !important;
+}
+
+/* ---------- Labels ---------- */
+
+.wpim-card label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #4b5563;
+}
+/* ---------- Inbox header row ---------- */
+
+.wpim-inbox-table {
+    margin-top: 10px;
+}
+
+.wpim-inbox-header,
+.wpim-inbox-row {
+    display: grid;
+    grid-template-columns:
+        40px   /* select */
+        60px   /* star/pin */
+        2fr    /* subject */
+        1.2fr  /* sender */
+        1fr    /* cc */
+        0.7fr  /* forwarded */
+        0.9fr  /* priority */
+        0.9fr  /* type */
+        1.3fr  /* doc */
+        0.7fr  /* attach */
+        1fr    /* date */
+        1.1fr; /* status */
+    align-items: center;
+    column-gap: 8px;
+}
+
+.wpim-inbox-header {
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.wpim-inbox-row {
+    margin-top: 4px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+    color: #111827;
+    transition: background 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.wpim-inbox-row.unread {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.wpim-inbox-row:hover {
+    box-shadow: 0 4px 12px rgba(148, 163, 184, 0.3);
+}
+
+/* Cells */
+
+.wpim-inbox-header .cell,
+.wpim-inbox-row .cell {
+    display: flex;
+    align-items: center;
+}
+
+.select-col {
+    justify-content: center;
+}
+.star-pin-col {
+    gap: 4px;
+}
+
+/* Star / pin buttons */
+
+.wpim-icon-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    padding: 0 2px;
+    color: #9ca3af;
+    transition: color 0.12s ease, transform 0.1s ease;
+}
+.wpim-icon-btn:hover {
+    color: #4b5563;
+    transform: translateY(-1px);
+}
+.wpim-icon-btn.active.star {
+    color: #facc15;
+}
+.wpim-icon-btn.active.pin {
+    color: #2563eb;
+}
+
+/* Subject link */
+
+.wpim-subject-link {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 500;
+}
+.wpim-subject-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+/* Badges: priority / type / status */
+
+.wpim-badge-priority,
+.wpim-badge-type,
+.wpim-badge-status {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* priority */
+.wpim-badge-priority.priority-low {
+    background: #ecfdf3;
+    color: #166534;
+}
+.wpim-badge-priority.priority-normal {
+    background: #e5e7eb;
+    color: #374151;
+}
+.wpim-badge-priority.priority-high {
+    background: #fef3c7;
+    color: #b45309;
+}
+.wpim-badge-priority.priority-urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* type */
+.wpim-badge-type.type-internal {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+.wpim-badge-type.type-external {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+/* status */
+.wpim-badge-status.status-none {
+    background: #e5e7eb;
+    color: #374151;
+}
+.wpim-badge-status.status-viewed {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+.wpim-badge-status.status-actioned {
+    background: #ecfdf3;
+    color: #166534;
+}
+.wpim-badge-status.status-forwarded {
+    background: #f5f3ff;
+    color: #4c1d95;
+}
+.wpim-badge-status.status-followup {
+    background: #fef3c7;
+    color: #92400e;
+}
+.wpim-badge-status.status-archived {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+/* Filter chips */
+
+.wpim-chip-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.wpim-chip-filter-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wpim-chip-filter-group input[type="radio"] {
+    display: none;
+}
+
+.wpim-chip-filter-group .chip {
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    transition: all 0.12s ease;
+}
+
+.wpim-chip-filter-group input[type="radio"]:checked + .chip {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* Bulk actions */
+
+.wpim-bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wpim-bulk-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+/* View message layout */
+
+.wpim-view-subject {
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    font-weight: 500;
+}
+
+.wpim-view-list,
+.wpim-view-box,
+.wpim-view-status {
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+}
+
+.wpim-view-body {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+/* Attachment list in view */
+
+.wpim-attachment-list-view {
+    margin: 0;
+    padding-right: 18px;
+    list-style: disc;
+}
+.wpim-attachment-list-view li {
+    margin-bottom: 2px;
+}
+.wpim-attachment-list-view a {
+    color: #2563eb;
+    text-decoration: none;
+}
+.wpim-attachment-list-view a:hover {
+    text-decoration: underline;
+}
